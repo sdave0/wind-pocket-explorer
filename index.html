@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Pocket Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+            "three/examples/jsm/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="main-title">
+        <h1>Wind Pocket Explorer</h1>
+    </div>
+
+    <div id="leaderboard-panel">
+        <h3>Windborne Grand Prix</h3>
+        <ul id="leaderboard-list"></ul>
+    </div>
+
+    <div id="info-panel">
+        <h3>Hour Statistics</h3>
+        <div>Average Speed: <span id="avg-speed">N/A</span></div>
+        <h4>Altitude Distribution</h4>
+        <div>High (>10km): <span id="high-alt-count">N/A</span></div>
+        <div>Mid (5-10km): <span id="mid-alt-count">N/A</span></div>
+        <div>Low (2-5km): <span id="low-alt-count">N/A</span></div>
+    </div>
+
+    <div id="pockets-panel">
+        <h3>Wind Pockets</h3>
+        <div id="pockets-list"></div>
+    </div>
+
+    <div id="explanation-panel">
+        <h3>Overview</h3>
+        <p>Areas where many balloons move fast in the same direction can show strong winds, like jet streams.<br>Pilots can use these strong winds to <b>save fuel</b>, or could also help avoid bad weather, making flights safer.<br>The leaderboard is just a fun insight showing fastest ballons.</p>
+    </div>
+
+    <div id="container"></div>
+    <div id="ui-controls">
+        <label for="hour-slider">Hour: <span id="hour-label">1</span></label>
+        <input type="range" id="hour-slider" name="hour-slider" min="1" max="23" value="1">
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
