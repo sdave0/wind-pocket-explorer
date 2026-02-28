@@ -4,13 +4,25 @@ Just a fun weekend project I made to play around with Windborne's balloon data a
 
 <img src="./images/WindPocket-UI.png" width="800" alt="Wind Pocket Explorer">
 
-> Note: The live demo uses a data snapshot to ensure consistent performance without requiring active API.
+
+
+Note: The live demo uses a data snapshot to ensure consistent performance without requiring a live API connection.
 
 ## Overview
 
 This project takes raw balloon telemetry data and plots it onto an interactive 3D globe. By comparing the coordinates of each balloon between timeframes, it calculates their speed and direction to derive where the fastest winds ("wind pockets") are actually happening.
 
+The underlying idea was to see if we could map natural "wind corridors," which in the real world can be used to optimize airplane flight paths and save fuel.
+
 Finally, it correlates this telemetry with live weather forecasts from the Open-Meteo API at those specific coordinates and altitude pressure levels (e.g., the jet stream). This allows us to compare the actual wind speeds measured by the balloons against the predicted meteorological forecast for those exact pockets.
+
+
+## What's Inside
+
+* **A 24-hour timeline:** A simple slider to scrub back and forth through the balloon movements.
+* **Wind grouping logic:** A custom script using a grid-based spatial hash and vector dot products to group fast-moving balloons (>100 km/h).
+* **3D wind arrows:** Color-coded directional arrows that render over the globe to show the average speed of those tracked groups.
+* **The "Grand Prix" leaderboard:** A fun side-panel tracking the top 10 fastest individual balloons for the selected hour, along with some global altitude stats.
 
 ## Tech Stack
 - **HTML, CSS, JavaScript (Vanilla)**
@@ -31,3 +43,7 @@ If you have Node installed:
 `npx serve .`
 
 Then just open `http://localhost:8000` in your browser.
+
+## Data Sources
+* **Balloon Telemetry:** Data provided by [Windborne Systems](https://windbornesystems.com/). This project was built to independently explore data visualization techniques using their atmospheric dataset.
+* **Weather Forecasts:** Live meteorological data sourced via the [Open-Meteo API](https://open-meteo.com/).
